@@ -49,6 +49,12 @@ flutter:
    - assets/images/frontendweb.jpg
    - assets/images/completeobjectivec.png
    - assets/images/completeswift.png
+   - assets/images/Roadmaps/Backend.png
+   - assets/images/Roadmaps/Devops.png
+   - assets/images/Roadmaps/Frontend.png
+   - assets/images/Roadmaps/Gamedev.png
+   - assets/images/Roadmaps/iOS.png
+   - assets/images/Roadmaps/Fullstack.jpg
 
   #  - images/a_dot_ham.jpeg
 
