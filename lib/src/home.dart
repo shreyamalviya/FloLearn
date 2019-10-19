@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flolearn/src/card.dart';
+import 'package:flolearn/src/web.dart';
 
 class Home extends StatefulWidget {
   final List<Widget> _categoryTabs = [
@@ -77,13 +79,8 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
       body: TabBarView(
         controller: _categoryController,
         children: <Widget>[
-          // HomePage(),
-          // PhysicsPage(),
-          // AlgorithmsPage(),
-          // MathematicsPage(),
-          // ChemistryPage(),
           Container(),
-          Container(),
+          Webs(),
           Container(),
           Container(),
         ],
