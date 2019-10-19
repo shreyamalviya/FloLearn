@@ -1,20 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flolearn/src/card.dart';
 import 'package:flolearn/src/web.dart';
+import 'package:flolearn/src/favorites.dart';
+import 'package:flolearn/src/ios.dart';
 
 class Home extends StatefulWidget {
   final List<Widget> _categoryTabs = [
     Tab(
-      child: Text('Home'),
+      child: Text('Favorites'),
     ),
     Tab(
       child: Text('Web Dev'),
     ),
     Tab(
       child: Text('Android'),
-    ),
-    Tab(
-      child: Text('Blockchain'),
     ),
   ];
   @override
@@ -29,7 +28,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
     super.initState();
     _categoryController = TabController(
       vsync: this,
-      length: 4,
+      length: 3,
     );
   }
 
@@ -79,10 +78,9 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
       body: TabBarView(
         controller: _categoryController,
         children: <Widget>[
-          Container(),
+          Favorites(),
           Webs(),
-          Container(),
-          Container(),
+          Ios(),
         ],
       ),
     );

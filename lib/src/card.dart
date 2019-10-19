@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flolearn/allflows.dart';
+import 'package:provider/provider.dart';
 
 class FlowCard extends StatefulWidget {
   final String flowName;
@@ -21,8 +23,17 @@ class FlowCard extends StatefulWidget {
 }
 
 class _FlowCardState extends State<FlowCard> {
+  int fav;
+
+  @override
+  void initState() {
+    super.initState();
+    fav = widget.fav;
+  }
+
   @override
   Widget build(BuildContext context) {
+    final appState = Provider.of<Flows>(context);
     return Card(
         elevation: 5,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
@@ -46,9 +57,15 @@ class _FlowCardState extends State<FlowCard> {
                       style: TextStyle(fontSize: 25),
                     )),
                 IconButton(
-                  icon: Icon(Icons.favorite_border),
-                  onPressed: () {},
-                )
+                  icon: (widget.fav == 1)
+                      ? Icon(Icons.favorite)
+                      : Icon(Icons.favorite_border),
+                  onPressed: () {
+                    setState(() {
+                      appState.toggleFavorite(widget.id);
+                    });
+                  },
+                ),
               ],
             ),
           ],
