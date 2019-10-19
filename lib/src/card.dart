@@ -34,27 +34,45 @@ class _FlowCardState extends State<FlowCard> {
   @override
   Widget build(BuildContext context) {
     final appState = Provider.of<Flows>(context);
-    return Card(
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => widget.direct),
+        );
+      },
+      child: Card(
         elevation: 5,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(0)),
         child: Column(
           children: <Widget>[
             Container(
-              width: MediaQuery.of(context).size.width - 20,
+              padding: EdgeInsets.fromLTRB(7, 7, 7, 0),
+              width: MediaQuery.of(context).size.width,
               height: MediaQuery.of(context).size.height / 3.5,
-              child: Image.asset(
-                widget.image,
-                fit: BoxFit.fill,
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(10.0),
+                child: Image.asset(
+                  widget.image,
+                  fit: BoxFit.contain,
+                ),
               ),
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
+                IconButton(
+                  icon: Icon(Icons.info_outline),
+                  onPressed: () {},
+                ),
                 Container(
                     padding: EdgeInsets.all(10),
                     child: Text(
                       widget.flowName,
-                      style: TextStyle(fontSize: 25),
+                      textAlign: TextAlign.center,
+                      style:
+                          TextStyle(fontSize: 23, fontWeight: FontWeight.bold),
                     )),
                 IconButton(
                   icon: (widget.fav == 1)
@@ -69,6 +87,8 @@ class _FlowCardState extends State<FlowCard> {
               ],
             ),
           ],
-        ));
+        ),
+      ),
+    );
   }
 }

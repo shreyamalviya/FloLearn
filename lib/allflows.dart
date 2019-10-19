@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flolearn/src/card.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flolearn/src/home.dart';
+import 'package:flolearn/flows/reactflow.dart';
 
 class Flows with ChangeNotifier {
   static var _favorites = [-1, -1, -1, -1, -1, -1];
@@ -36,7 +37,7 @@ class Flows with ChangeNotifier {
         id: 0,
         flowName: 'Full Stack React',
         image: 'assets/images/react.png',
-        direct: Home(),
+        direct: ReactFlow(),
         about: '',
         fav: _favorites[0],
       ),
