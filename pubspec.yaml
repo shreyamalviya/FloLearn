@@ -56,6 +56,10 @@ flutter:
    - assets/images/Roadmaps/Gamedev.png
    - assets/images/Roadmaps/iOS.png
    - assets/images/Roadmaps/Fullstack.jpg
+   - assets/images/fullstack.jpg
+   - assets/images/ios.jpg
+
+
 
   #  - images/a_dot_ham.jpeg
 

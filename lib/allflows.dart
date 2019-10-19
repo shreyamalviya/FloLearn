@@ -37,8 +37,8 @@ class Flows with ChangeNotifier {
     return <Widget>[
       FlowCard(
         id: 0,
-        flowName: 'Full Stack React',
-        image: 'assets/images/react.png',
+        flowName: 'Full Stack Web Development',
+        image: 'assets/images/fullstack.jpg',
         direct: ReactFlow(),
         about: '',
         fav: _favorites[0],
@@ -62,7 +62,7 @@ class Flows with ChangeNotifier {
       FlowCard(
         id: 3,
         flowName: 'Full Stack iOS Dev',
-        image: 'assets/images/react.png',
+        image: 'assets/images/ios.jpg',
         direct: iOS(),
         about: '',
         fav: _favorites[3],

@@ -43,7 +43,6 @@ class _FlowCardState extends State<FlowCard> {
       },
       child: Card(
         elevation: 5,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(0)),
         child: Column(
           children: <Widget>[
             Container(
@@ -54,7 +53,7 @@ class _FlowCardState extends State<FlowCard> {
                 borderRadius: BorderRadius.circular(10.0),
                 child: Image.asset(
                   widget.image,
-                  fit: BoxFit.contain,
+                  fit: BoxFit.cover,
                 ),
               ),
             ),

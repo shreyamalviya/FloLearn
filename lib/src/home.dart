@@ -12,10 +12,16 @@ class Home extends StatefulWidget {
       child: Text('Favorites'),
     ),
     Tab(
-      child: Text('Web Dev'),
+      child: Text('Web Development'),
     ),
     Tab(
       child: Text('iOS'),
+    ),
+    Tab(
+      child: Text('Android'),
+    ),
+    Tab(
+      child: Text('Cyber Security'),
     ),
   ];
   @override
@@ -30,7 +36,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
     super.initState();
     _categoryController = TabController(
       vsync: this,
-      length: 3,
+      length: 5,
     );
   }
 
@@ -44,6 +50,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: Icon(Icons.menu),
         centerTitle: true,
         iconTheme: IconThemeData(
           color: Colors.black,
@@ -83,6 +90,8 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
           Favorites(),
           Webs(),
           Ios(),
+          Container(),
+          Container(),
         ],
       ),
     );
