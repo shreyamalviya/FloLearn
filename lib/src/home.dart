@@ -13,7 +13,7 @@ class Home extends StatefulWidget {
       child: Text('Web Dev'),
     ),
     Tab(
-      child: Text('Android'),
+      child: Text('iOS'),
     ),
   ];
   @override

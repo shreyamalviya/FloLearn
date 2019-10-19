@@ -2,6 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flolearn/src/card.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flolearn/src/home.dart';
+import 'package:flolearn/flows/reactflow.dart';
+import 'package:flolearn/flows/backend.dart';
+import 'package:flolearn/flows/frontend.dart';
+import 'package:flolearn/flows/iOS.dart';
 
 class Flows with ChangeNotifier {
   static var _favorites = [-1, -1, -1, -1, -1, -1];
@@ -36,7 +40,7 @@ class Flows with ChangeNotifier {
         id: 0,
         flowName: 'Full Stack React',
         image: 'assets/images/react.png',
-        direct: Home(),
+        direct: ReactFlow(),
         about: '',
         fav: _favorites[0],
       ),
@@ -44,7 +48,7 @@ class Flows with ChangeNotifier {
         id: 1,
         flowName: 'Complete Frontend Web',
         image: 'assets/images/frontendweb.jpg',
-        direct: Home(),
+        direct: Frontend(),
         about: '',
         fav: _favorites[1],
       ),
@@ -52,7 +56,7 @@ class Flows with ChangeNotifier {
         id: 2,
         flowName: 'Complete Backend Web',
         image: 'assets/images/backendweb.png',
-        direct: Home(),
+        direct: Backend(),
         about: '',
         fav: _favorites[2],
       ),
@@ -60,7 +64,7 @@ class Flows with ChangeNotifier {
         id: 3,
         flowName: 'Full Stack iOS Dev',
         image: 'assets/images/react.png',
-        direct: Home(),
+        direct: iOS(),
         about: '',
         fav: _favorites[3],
       ),
