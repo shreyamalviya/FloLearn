@@ -3,6 +3,8 @@ import 'package:flolearn/src/card.dart';
 import 'package:flolearn/src/web.dart';
 import 'package:flolearn/src/favorites.dart';
 import 'package:flolearn/src/ios.dart';
+import 'package:provider/provider.dart';
+import 'package:flolearn/allflows.dart';
 
 class Home extends StatefulWidget {
   final List<Widget> _categoryTabs = [
@@ -59,10 +61,10 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
           IconButton(
             icon: Icon(Icons.search),
             onPressed: () {
-              // showSearch(
-              //   context: context,
-              //   delegate: SimulationSearch(),
-              // );
+              showSearch(
+                context: context,
+                delegate: FlowSearch(),
+              );
             },
           ),
         ],
@@ -84,5 +86,68 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
         ],
       ),
     );
+  }
+}
+
+class FlowSearch extends SearchDelegate<FlowCard> {
+  @override
+  List<Widget> buildActions(BuildContext context) {
+    return [
+      IconButton(
+        icon: Icon(Icons.clear),
+        onPressed: () {
+          query = '';
+        },
+      ),
+    ];
+  }
+
+  @override
+  Widget buildLeading(BuildContext context) {
+    return IconButton(
+      icon: Icon(Icons.arrow_back),
+      onPressed: () {
+        close(context, null);
+      },
+    );
+  }
+
+  @override
+  Widget buildResults(BuildContext context) {
+    return Container();
+  }
+
+  @override
+  Widget buildSuggestions(BuildContext context) {
+    final appState = Provider.of<Flows>(context);
+    return (query != '')
+        ? (appState.searchFlows(query).length != 0)
+            ? ListView(
+                children: appState.searchFlows(query),
+              )
+            : Container(
+                child: Center(
+                  child: Text(
+                    "Sorry, couldn't find a track",
+                    style: TextStyle(
+                      color: Colors.grey,
+                      fontSize: 30,
+                      fontFamily: 'Ubuntu',
+                    ),
+                  ),
+                ),
+              )
+        : Container(
+            child: Center(
+              child: Text(
+                'Search for Tracks',
+                style: TextStyle(
+                  color: Colors.grey,
+                  fontSize: 30,
+                  fontFamily: 'Ubuntu',
+                ),
+              ),
+            ),
+          );
   }
 }

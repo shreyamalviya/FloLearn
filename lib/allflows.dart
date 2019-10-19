@@ -12,15 +12,14 @@ class Flows with ChangeNotifier {
   final _web = [0, 1, 2];
   final _ios = [3, 4, 5];
   var prefs;
-  // final _searchTags = {
-  //   0: "toothpick pattern algorithm sequence ",
-  //   1: "langtons ant pattern algorithm ",
-  //   2: "bubble sort algorithm sorting bars ",
-  //   3: "insertion sort algorithm sorting bars ",
-  //   4: "rose pattern mathematics sequence ",
-  //   5: "fourier series mathematics ",
-  //   6: "pi approximation monte carlo method ",
-  // };
+  final _searchTags = {
+    0: "react full stack web development javascript UI webapps user interface",
+    1: "web front end frontend development UI user interface html css javascript ",
+    2: "web back end backend development mongodb database ",
+    3: "full stack ios devlopment apps swift objective c ",
+    4: "ios devlopment apps swift ",
+    5: "ios devlopment apps objectivec ",
+  };
 
   Flows() {
     getFavorites();
@@ -136,18 +135,18 @@ class Flows with ChangeNotifier {
     return widgets;
   }
 
-  // List<Widget> searchSims(String query) {
-  //   query = query.toLowerCase();
-  //   List<Widget> widgets = [];
-  //   List<Widget> allWidgets = allSimulations();
-  //   final regex = RegExp('$query[a-z]* ');
-  //   _searchTags.forEach((key, tags) {
-  //     if (regex.hasMatch(tags)) {
-  //       widgets.add(allWidgets[key]);
-  //     }
-  //   });
-  //   return widgets;
-  // }
+  List<Widget> searchFlows(String query) {
+    query = query.toLowerCase();
+    List<Widget> widgets = [];
+    List<Widget> allWidgets = allFlows();
+    final regex = RegExp('$query[a-z]* ');
+    _searchTags.forEach((key, tags) {
+      if (regex.hasMatch(tags)) {
+        widgets.add(allWidgets[key]);
+      }
+    });
+    return widgets;
+  }
 
   void toggleFavorite(int index) async {
     _favorites[index] *= -1;
